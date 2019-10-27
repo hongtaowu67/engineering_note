@@ -23,3 +23,5 @@ rosrun image_view image_view image:=/camera/rgb/image_raw
 The RGB, Depth, and IR image can be checked from listing to rostopic.
 
 The camera can be calibrated following this [link](http://wiki.ros.org/openni_launch/Tutorials/IntrinsicCalibration).
+
+For calibrating the IR sensor, use a Post-it note to cover the speckle projector so that the pattern would not influence the detection of the checkerboard.
