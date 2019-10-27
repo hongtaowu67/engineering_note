@@ -8,7 +8,7 @@ Use the [openni2](https://github.com/ros-drivers/openni2_camera) package. To __l
 roslaunch openni2_launch openni2.launch
 ```
 
-You can also add the _depth_registraition_
+You can also add the **depth_registration** keyword.
 
 ```
 roslaunch openni2_launch openni2.launch depth_registration:=true
