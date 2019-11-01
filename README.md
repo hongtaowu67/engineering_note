@@ -72,3 +72,14 @@ Finally, check the gcc version:
 ```
 gcc -v
 ```
+
+## OpenCV Installation on Linux
+1. Download the corresponding release zip file from the [official OpenCV website](https://opencv.org/releases/)
+2. Unzip the zip file
+'''
+unzip opencv-x.x.xx.x.zip /destination_folder
+'''
+3. Follow the [official instartion](https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html) to build
+
+### Installation problems with CUDA and solution
+For **CMAake Error: Variables are set to NOTFOUND**, follow this [link](https://stackoverflow.com/questions/46584000/cmake-error-variables-are-set-to-notfound)
