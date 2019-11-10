@@ -27,9 +27,9 @@ The camera can be calibrated following this [link](http://wiki.ros.org/openni_la
 For calibrating the IR sensor, use a Post-it note to cover the speckle projector so that the pattern would not influence the detection of the checkerboard.
 
 To run with the Primesense 1.09 camera, need to add the following to **/lib/udev/rules.d/40-libopenni2-0.rules**
-'''
+```
 SUBSYSTEM=="usb", ATTR{idProduct}=="0609", ATTR{idVendor}=="1d27", MODE:="0666", OWNER:="root", GROUP:="video"
-'''
+```
 This is because 0609 is not in the default udev rules that get installed with the libopenni2. See (link)[https://answers.ros.org/question/197318/openni2_launch-doesnt-work-with-carmine-109-connected-to-usb30/] here.
 
 ## Alternative for gcc and g++ on Ubuntu
@@ -83,3 +83,34 @@ unzip opencv-x.x.xx.x.zip /destination_folder
 
 ### Installation problems with CUDA and solution
 For **CMAake Error: Variables are set to NOTFOUND**, follow this [link](https://stackoverflow.com/questions/46584000/cmake-error-variables-are-set-to-notfound)
+
+### Changing the link of the library
+1. Check the the runtime library, for example
+
+```
+ldd demo
+ldd demo | grep opencv
+```
+2. Then go to the folder where the library link to and make the original link as backup file, for example
+```
+mv libopencv_core.so.2.4 libopencv_core.so.2.4.bak
+```
+3. **Soft link** the so file to the target lib you want, for example
+```
+sudo ln -s <target so file> libopencv_core.so.2.4
+```
+target so file can be: libopencv_core.so.2.4.13
+
+## NVCC compile adding library
+
+To add the library which is pointing towards a specific path:
+
+'''
+nvcc --gpu-architecture=sm_50 a.o b.o --library-path=<path> --library=foo
+'''
+
+For example, in the [TSDF Fusion](https://github.com/jaydenwu17/tsdf-fusion) project, to compile
+
+'''
+nvcc -std=c++11 -O3 -o demo demo.cu -I/usr/local/cuda/include -L$CUDA_LIB_DIR -lcudart -lcublas -lcurand -D_MWAITXINTRIN_H_INCLUDED --library-path=/home/hongtao/src_protected/opencv-2.4.13.6/build/lib  -lopencv_core -lopencv_highgui -lopencv_imgproc
+'''
