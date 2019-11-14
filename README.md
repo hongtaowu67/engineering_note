@@ -114,3 +114,54 @@ For example, in the [TSDF Fusion](https://github.com/jaydenwu17/tsdf-fusion) pro
 '''
 nvcc -std=c++11 -O3 -o demo demo.cu -I/usr/local/cuda/include -L$CUDA_LIB_DIR -lcudart -lcublas -lcurand -D_MWAITXINTRIN_H_INCLUDED --library-path=/home/hongtao/src_protected/opencv-2.4.13.6/build/lib  -lopencv_core -lopencv_highgui -lopencv_imgproc
 '''
+
+# Set up zsh on Linux
+## Step 1: Install and configure zsh
+```
+sudo apt install zsh
+```
+Change the default sheel of the root user to zsh:
+```
+chsh -s /usr/bin/zsh root
+```
+Check the current shell used:
+```
+echo $SHELL
+```
+
+## Step 2: Install and configure Oh-my-zsh
+Install git:
+```
+sudo apt install wget git
+```
+Download the installer script:
+```
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+```
+Copy the template configuration file to home and apply the configuration:
+```
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+source ~/.zshrc
+```
+
+# [Option] Step 3: Change default themes
+```
+cd ~/.oh-my-zsh/themes/
+ls -a
+```
+```
+vim ~/.zshrc
+```
+At *ZSH_THEME*, change it to say:
+```
+ZSH_THEME='risto'
+```
+And source the .zshrc.
+
+More details can be found [here](https://www.howtoforge.com/tutorial/how-to-setup-zsh-and-oh-my-zsh-on-linux/)
+
+# Configure the .zshrc for ROS
+Add the following to the ~/.zshrc file
+```
+. /opt/ros/kinetic/setup.zsh
+```
