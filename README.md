@@ -32,6 +32,8 @@ SUBSYSTEM=="usb", ATTR{idProduct}=="0609", ATTR{idVendor}=="1d27", MODE:="0666",
 ```
 This is because 0609 is not in the default udev rules that get installed with the libopenni2. See (link)[https://answers.ros.org/question/197318/openni2_launch-doesnt-work-with-carmine-109-connected-to-usb30/] here.
 
+Note that for some system, the **/lib/udev/rules.d/40-libopenni2-0.rules** may not exist. Look for **/lib/udev/rules.d/60-libopenni2-0.rules** in this case.
+
 ## Alternative for gcc and g++ on Ubuntu
 [Source link](https://askubuntu.com/questions/26498/how-to-choose-the-default-gcc-and-g-version)
 
@@ -105,15 +107,15 @@ target so file can be: libopencv_core.so.2.4.13
 
 To add the library which is pointing towards a specific path:
 
-'''
+```
 nvcc --gpu-architecture=sm_50 a.o b.o --library-path=<path> --library=foo
-'''
+```
 
 For example, in the [TSDF Fusion](https://github.com/jaydenwu17/tsdf-fusion) project, to compile
 
-'''
+```
 nvcc -std=c++11 -O3 -o demo demo.cu -I/usr/local/cuda/include -L$CUDA_LIB_DIR -lcudart -lcublas -lcurand -D_MWAITXINTRIN_H_INCLUDED --library-path=/home/hongtao/src_protected/opencv-2.4.13.6/build/lib  -lopencv_core -lopencv_highgui -lopencv_imgproc
-'''
+```
 
 # Set up zsh on Linux
 ## Step 1: Install and configure zsh
@@ -144,7 +146,7 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 source ~/.zshrc
 ```
 
-# [Option] Step 3: Change default themes
+## [Option] Step 3: Change default themes
 ```
 cd ~/.oh-my-zsh/themes/
 ls -a
@@ -160,8 +162,42 @@ And source the .zshrc.
 
 More details can be found [here](https://www.howtoforge.com/tutorial/how-to-setup-zsh-and-oh-my-zsh-on-linux/)
 
-# Configure the .zshrc for ROS
+## Configure the .zshrc for ROS
 Add the following to the ~/.zshrc file
 ```
 . /opt/ros/kinetic/setup.zsh
 ```
+
+# Using ArUco tag in ROS
+The ROS package to work with is the **aruco_ros**. It can be installed by building the [official git repository](https://github.com/pal-robotics/aruco_ros) or simply apt install:
+```
+sudo apt install ros-kinetic-aruco-ros
+```
+
+To use the package, we need to first remap the rosparam **camera_info** and **/image**. If you install with apt, then go to the launch file:
+```
+cd /opt/ros/kinetic/share/aruco_ros/launch
+vim single.launch
+```
+
+Change the following to the target camera_info and image rostopic from your camera, for example
+```
+<remap from="/camera_info" to="/camera/rgb/camera_info">
+<remap from="/image" to="/camera/rbg/image_rect">
+```
+
+Run the launch file
+```
+roslaunch arudo_ros single.launch markerId:=<marker id> markerSize:=<marker size>
+```
+
+To visualize the result
+```
+rosrun image_view image_view image:=/aruco_single/result
+```
+
+To check the pose with respect to the camera
+```
+rostopic echo /aruco_single/pose
+```
+It is going to give the position in meter and the orientation in quaternion of the tag. 
