@@ -174,6 +174,8 @@ The ROS package to work with is the **aruco_ros**. It can be installed by buildi
 sudo apt install ros-kinetic-aruco-ros
 ```
 
+The aruco tag can be downloaded from [here](http://chev.me/arucogen/). But make sure in the Dictionary option, choose the **Orignal ArUco**! 
+
 To use the package, we need to first remap the rosparam **camera_info** and **/image**. If you install with apt, then go to the launch file:
 ```
 cd /opt/ros/kinetic/share/aruco_ros/launch
