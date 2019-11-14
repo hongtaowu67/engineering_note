@@ -103,7 +103,7 @@ sudo ln -s <target so file> libopencv_core.so.2.4
 ```
 target so file can be: libopencv_core.so.2.4.13
 
-## NVCC compile adding library
+### NVCC compile adding library
 
 To add the library which is pointing towards a specific path:
 
@@ -117,8 +117,8 @@ For example, in the [TSDF Fusion](https://github.com/jaydenwu17/tsdf-fusion) pro
 nvcc -std=c++11 -O3 -o demo demo.cu -I/usr/local/cuda/include -L$CUDA_LIB_DIR -lcudart -lcublas -lcurand -D_MWAITXINTRIN_H_INCLUDED --library-path=/home/hongtao/src_protected/opencv-2.4.13.6/build/lib  -lopencv_core -lopencv_highgui -lopencv_imgproc
 ```
 
-# Set up zsh on Linux
-## Step 1: Install and configure zsh
+## Set up zsh on Linux
+### Step 1: Install and configure zsh
 ```
 sudo apt install zsh
 ```
@@ -131,7 +131,7 @@ Check the current shell used:
 echo $SHELL
 ```
 
-## Step 2: Install and configure Oh-my-zsh
+### Step 2: Install and configure Oh-my-zsh
 Install git:
 ```
 sudo apt install wget git
@@ -146,7 +146,7 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 source ~/.zshrc
 ```
 
-## [Option] Step 3: Change default themes
+### [Optional] Step 3: Change default themes
 ```
 cd ~/.oh-my-zsh/themes/
 ls -a
@@ -162,13 +162,13 @@ And source the .zshrc.
 
 More details can be found [here](https://www.howtoforge.com/tutorial/how-to-setup-zsh-and-oh-my-zsh-on-linux/)
 
-## Configure the .zshrc for ROS
+### Configure the .zshrc for ROS
 Add the following to the ~/.zshrc file
 ```
 . /opt/ros/kinetic/setup.zsh
 ```
 
-# Using ArUco tag in ROS
+### Using ArUco tag in ROS
 The ROS package to work with is the **aruco_ros**. It can be installed by building the [official git repository](https://github.com/pal-robotics/aruco_ros) or simply apt install:
 ```
 sudo apt install ros-kinetic-aruco-ros
