@@ -30,7 +30,7 @@ To run with the Primesense 1.09 camera, need to add the following to **/lib/udev
 ```
 SUBSYSTEM=="usb", ATTR{idProduct}=="0609", ATTR{idVendor}=="1d27", MODE:="0666", OWNER:="root", GROUP:="video"
 ```
-This is because 0609 is not in the default udev rules that get installed with the libopenni2. See (link)[https://answers.ros.org/question/197318/openni2_launch-doesnt-work-with-carmine-109-connected-to-usb30/] here.
+This is because 0609 is not in the default udev rules that get installed with the libopenni2. See [here](https://answers.ros.org/question/197318/openni2_launch-doesnt-work-with-carmine-109-connected-to-usb30/) here.
 
 Note that for some system, the **/lib/udev/rules.d/40-libopenni2-0.rules** may not exist. Look for **/lib/udev/rules.d/60-libopenni2-0.rules** in this case.
 
@@ -168,7 +168,8 @@ Add the following to the ~/.zshrc file
 . /opt/ros/kinetic/setup.zsh
 ```
 
-### Using ArUco tag in ROS
+## Using ArUco tag in ROS
+[Source link](https://blog.csdn.net/huanghaihui_123/article/details/88965426)
 The ROS package to work with is the **aruco_ros**. It can be installed by building the [official git repository](https://github.com/pal-robotics/aruco_ros) or simply apt install:
 ```
 sudo apt install ros-kinetic-aruco-ros
