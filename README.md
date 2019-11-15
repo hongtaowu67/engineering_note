@@ -204,3 +204,6 @@ To check the pose with respect to the camera
 rostopic echo /aruco_single/pose
 ```
 It is going to give the position in meter and the orientation in quaternion of the tag. 
+
+### Axis orientation does not match issue
+The axis printed out by the aruco tag when visualizing in the image_view does **not** match with the pose from the rostopic **/aruco_ros/pose**. Please be careful.
