@@ -30,7 +30,7 @@ To run with the Primesense 1.09 camera, need to add the following to **/lib/udev
 ```
 SUBSYSTEM=="usb", ATTR{idProduct}=="0609", ATTR{idVendor}=="1d27", MODE:="0666", OWNER:="root", GROUP:="video"
 ```
-This is because 0609 is not in the default udev rules that get installed with the libopenni2. See [here](https://answers.ros.org/question/197318/openni2_launch-doesnt-work-with-carmine-109-connected-to-usb30/) here.
+This is because 0609 is not in the default udev rules that get installed with the libopenni2. See [here](https://answers.ros.org/question/197318/openni2_launch-doesnt-work-with-carmine-109-connected-to-usb30/).
 
 Note that for some system, the **/lib/udev/rules.d/40-libopenni2-0.rules** may not exist. Look for **/lib/udev/rules.d/60-libopenni2-0.rules** in this case.
 
