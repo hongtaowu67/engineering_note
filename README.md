@@ -199,7 +199,7 @@ To visualize the result
 rosrun image_view image_view image:=/aruco_single/result
 ```
 
-To check the pose with respect to the camera
+To check the pose with respect to the camera (marker pose in camear frame)
 ```
 rostopic echo /aruco_single/pose
 ```
