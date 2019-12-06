@@ -207,3 +207,8 @@ It is going to give the position in meter and the orientation in quaternion of t
 
 ### Axis orientation does not match issue
 The axis printed out by the aruco tag when visualizing in the image_view does **not** match with the pose from the rostopic **/aruco_ros/pose**. Please be careful.
+
+## UR5
+### TCP position and orientation for UR5
+We can pass tcp common to the UR5 to control its pose. The position is represented by [x, y, z]. The orientation is a bit tricky: it is represented by [rx, ry, rz]. The length of [rx, ry, rz] is the anlge to be rotated in radians, and the vector itself gives the axis about which to rotate.
+
