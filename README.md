@@ -212,3 +212,15 @@ The axis printed out by the aruco tag when visualizing in the image_view does **
 ### TCP position and orientation for UR5
 We can pass tcp common to the UR5 to control its pose. The position is represented by [x, y, z]. The orientation is a bit tricky: it is represented by [rx, ry, rz]. The length of [rx, ry, rz] is the anlge to be rotated in radians, and the vector itself gives the axis about which to rotate.
 
+### Using I/O to control the gripper ([afag EU-20 UR](https://www.afag.com/en/products/detail/universal-gripper-ug-20.html))
+1. Connect the gripper to the gripper. Check the working voltage of the gripper. Usually it is either 12V or 24V.
+2. In the UR interface, go to the I/O page. At the right low corner, set the voltage to the working voltage (the working voltage for afag EU-20 UR is 24V).
+3. Click on the 0 in the Tool Output and see if the gripper is working.
+4. To control the gripper from the computer, use the following
+```
+import urx
+rob = urx.Robot("tcp address")
+rob.send_program("set_tool_digital_out(%s, %s)" % (0, True))
+rob.send_program("set_tool_digital_out(%s, %s)" % (0, False))
+```
+More details about the function **send_program** can be checked in [here](https://github.com/jaydenwu17/Engineering_Note/blob/master/official_ur5script.pdf). There are many available functions which is very handy to use.
