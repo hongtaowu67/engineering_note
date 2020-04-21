@@ -224,3 +224,17 @@ rob.send_program("set_tool_digital_out(%s, %s)" % (0, True))
 rob.send_program("set_tool_digital_out(%s, %s)" % (0, False))
 ```
 More details about the function **send_program** can be checked in [here](https://github.com/jaydenwu17/Engineering_Note/blob/master/official_ur5script.pdf). There are many available functions which is very handy to use.
+
+## Installing Caffe
+Clone the repository
+```
+git clone https://github.com/BVLC/caffe.git
+```
+Make sure cuda, opencv are installed. To specify the opencv directory
+```
+export OpenCV_DIR="xxx/opencv-2.4.13.6/build"
+
+```
+Follow the instruction in https://blog.csdn.net/weixin_43915208/article/details/87885956 to build caffe.
+
+Make sure to specify using CUDNN, OpenCV, and Python Version in the Makefile.config.
