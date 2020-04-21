@@ -233,7 +233,6 @@ git clone https://github.com/BVLC/caffe.git
 Make sure cuda, opencv are installed. To specify the opencv directory
 ```
 export OpenCV_DIR="xxx/opencv-2.4.13.6/build"
-
 ```
 Follow the instruction in https://blog.csdn.net/weixin_43915208/article/details/87885956 to build caffe.
 
