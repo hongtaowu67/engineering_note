@@ -74,6 +74,7 @@ Finally, check the gcc version:
 ```
 gcc -v
 ```
+If you are working with ROS Kinetic, you should use gccc 5.x (e.g., gcc 5.5) for building.
 
 ## OpenCV Installation on Linux
 1. Download the corresponding release zip file from the [official OpenCV website](https://opencv.org/releases/)
