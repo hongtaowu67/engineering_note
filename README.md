@@ -226,6 +226,12 @@ rob.send_program("set_tool_digital_out(%s, %s)" % (0, False))
 ```
 More details about the function **send_program** can be checked in [here](https://github.com/jaydenwu17/Engineering_Note/blob/master/official_ur5script.pdf). There are many available functions which is very handy to use.
 
+## PrimeSense Camera
+
+The x-axis of the camera frame is to the left of the camera when facing the camera lens. The y-axis is to the ground when facing the camera lens upright.
+
+When not specified, enabling [depth_registration:=true], the depth image and the rgb image are registered by the default factory setting.
+
 ## Installing Caffe
 Clone the repository
 ```
