@@ -252,3 +252,19 @@ Make sure to specify using CUDNN, OpenCV, and Python Version in the Makefile.con
   sudo apt-get install ros-$ROS_VER-realsense2-camera
   ```
   More details can be found from https://github.com/IntelRealSense/realsense-ros
+  
+### Set up UR5 robot with ur_modern_driver
+1. cd into the catkin_ws/src
+```
+git clone https://github.com/ros-industrial/ur_modern_driver.git
+```
+2. However, the master branch of this repo is deprecated and does not work for ROS kinetic. Thus, switch to the **kinetic-devel** branch. More details can be found [here](https://github.com/ros-industrial/ur_modern_driver/pull/120).
+```
+git checkout kinetic-devel
+```
+3. Then, catkin_make from catkin_ws/
+4. To bring up the robot
+```
+roslaunch ur_modern_driver ur5_bringup.launch robot_ip:=$ROBOT_IP_ADDRESS
+```
+
