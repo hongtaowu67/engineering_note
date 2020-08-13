@@ -253,7 +253,8 @@ Make sure to specify using CUDNN, OpenCV, and Python Version in the Makefile.con
   ```
   More details can be found from https://github.com/IntelRealSense/realsense-ros
   
-### Set up UR5 robot with ur_modern_driver
+## Set up UR5 robot with ur_modern_driver
+The following works for Ubuntu 16.04 and ROS Kinetic. If you are using Ubuntu 18.04 and ROS Melodic, please use [ur_robot_driver](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver) instead. The tutorial to work with UR5 robot with ur_modern_driver can be found [here](http://wiki.ros.org/universal_robot/Tutorials/Getting%20Started%20with%20a%20Universal%20Robot%20and%20ROS-Industrial). But this is very old documentation.
 1. cd into the catkin_ws/src
 ```
 git clone https://github.com/ros-industrial/ur_modern_driver.git
