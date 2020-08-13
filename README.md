@@ -244,3 +244,11 @@ export OpenCV_DIR="xxx/opencv-2.4.13.6/build"
 Follow the instruction in https://blog.csdn.net/weixin_43915208/article/details/87885956 to build caffe.
 
 Make sure to specify using CUDNN, OpenCV, and Python Version in the Makefile.config.
+
+## Intel Realsense D435 setup guide
+1. Install the **librealsense** library from https://github.com/IntelRealSense/librealsense. It is better to install from source.
+2. Install the ROS wrapper **realsense-ros** with
+```
+sudo apt-get install ros-$ROS_VER-realsense2-camera
+```
+More details can be found from https://github.com/IntelRealSense/realsense-ros
