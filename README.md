@@ -246,7 +246,7 @@ Follow the instruction in https://blog.csdn.net/weixin_43915208/article/details/
 Make sure to specify using CUDNN, OpenCV, and Python Version in the Makefile.config.
 
 ## Intel Realsense D435 setup guide
-1. Install the **librealsense** library from https://github.com/IntelRealSense/librealsense. It is better to install from source.
+1. Install the **librealsense** library from https://github.com/IntelRealSense/librealsense. It is better to install from source. More details can be found here: https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md.
 2. Install the ROS wrapper **realsense-ros** with
   ```
   sudo apt-get install ros-$ROS_VER-realsense2-camera
