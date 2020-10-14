@@ -232,6 +232,21 @@ The x-axis of the camera frame is to the left of the camera when facing the came
 
 When not specified, enabling [depth_registration:=true], the depth image and the rgb image are registered by the default factory setting.
 
+To launch the camera without registration
+```
+roslaunch openni2_launch openni2.launch
+```
+*/camera/depth/image_rect* -- rectified depth image in 8-bit in **camera_depth_optical_frame**
+
+*/camera/depth/image_rect_raw* -- rectified depth image in 16-bit **camera_depth_optical_frame**
+
+*/camera/depth/points* -- point cloud in **camera_depth_optical_frame**
+
+*/camera/depth_registered/sw_registered/image_rect* -- rectified depth image in 8-bit in **camera_rgb_optical_frame**
+
+*/camera/depth_registered/sw_registered/image_rect_raw* -- rectified depth image in 16-bit in **camera_rgb_optical_frame**
+
+
 ## Installing Caffe
 Clone the repository
 ```
