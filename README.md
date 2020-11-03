@@ -296,4 +296,19 @@ git checkout kinetic-devel
 ```
 roslaunch ur_modern_driver ur5_bringup.launch robot_ip:=$ROBOT_IP_ADDRESS
 ```
+# Robotiq 2f gripper
+To set up the gripper with a UR robot, most information can be found [here](http://wiki.ros.org/robotiq).
+```
+git clone https://github.com/ros-industrial/robotiq.git
+sudo apt-get install ros-kinetic-soem
+sudo easy_install -U pymodbus
+sudo usermod -a -G dialout $USER
+dmesg | grep tty
+sudo chmod 777 /dev/ttyUSB0
+```
+and catkin_make the code. To test if it works,
+```
+rosrun robotiq_2f_gripper_control Robotiq2FGripperRtuNode.py /dev/ttyUSB0
+```
+The LED light should be turning from red to blue. However, there is a bug in **Robotiq2FGripperRtuNode.py**. The way to fix it is mentioned [here](https://github.com/ros-industrial/robotiq/issues/167).
 
