@@ -236,6 +236,11 @@ To launch the camera without registration,
 ```
 roslaunch openni2_launch openni2.launch
 ```
+If there is an error about **Could not open "1d27/0609@1/12": Failed to open the USB device**, follow this [link](https://answers.ros.org/question/197318/openni2_launch-doesnt-work-with-carmine-109-connected-to-usb30/) to fix the problem. Basically, add the following to **/etc/udev/rules.d/40-libopenni2-0.rules**
+```
+SUBSYSTEM=="usb", ATTR{idProduct}=="0609", ATTR{idVendor}=="1d27", MODE:="0666", OWNER:="root", GROUP:="video"
+```
+
 */camera/depth/image_rect* -- rectified depth image in 8-bit in **camera_depth_optical_frame**
 
 */camera/depth/image_rect_raw* -- rectified depth image in 16-bit **camera_depth_optical_frame**
