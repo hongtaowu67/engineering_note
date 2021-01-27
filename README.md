@@ -1,5 +1,5 @@
-# Engineering_Note
-Recording my failure and success in Engineering...
+# engineering_note
+My failure and success in Engineering...
 
 ## RGBD Camera with ROS
 Use the [openni2](https://github.com/ros-drivers/openni2_camera) package. To __launch__ the rosnode ro run the camera
