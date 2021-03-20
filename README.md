@@ -317,3 +317,5 @@ rosrun robotiq_2f_gripper_control Robotiq2FGripperRtuNode.py /dev/ttyUSB0
 ```
 The LED light should be turning from red to blue. However, there is a bug in **Robotiq2FGripperRtuNode.py**. The way to fix it is mentioned [here](https://github.com/ros-industrial/robotiq/issues/167).
 
+# Openrave Setup
+https://fsuarez6.github.io/blog/workstation-setup-xenial/
